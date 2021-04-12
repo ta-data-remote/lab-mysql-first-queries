@@ -8,17 +8,19 @@ select distinct(prime_genre) from data;
 
 #2. Which is the genre with more apps rated?
 
-select prime_genre from data
-order by rating_count_tot desc
+select prime_genre, sum(rating_count_tot) from data
+group by prime_genre
+order by sum(rating_count_tot) desc
 limit 1;
 
-# Social Networking is the genre with more apps rated.
+# Games is the genre with more apps rated.
 
 #3. Which is the genre with more apps?
 
 select prime_genre,count(prime_genre) from data
 group by prime_genre
-order by count(prime_genre) desc ;
+order by count(prime_genre) desc
+limit 1 ;
 
 # Games is the genre with more apps.
 
@@ -26,7 +28,8 @@ order by count(prime_genre) desc ;
 
 select prime_genre,count(prime_genre) from data
 group by prime_genre
-order by count(prime_genre);
+order by count(prime_genre)
+limit 1;
 
 # Catalogs is the genre with less apps.
 
@@ -53,6 +56,11 @@ limit 10;
 
 #9. Now compare the data from questions 5 and 6. What do you see?
 
+select track_name, rating_count_tot, user_rating from data
+order by rating_count_tot desc
+limit 10;
+
+
 # That the most rated apps are not necesary the best rated apps (many of those review could be bad reviews)
 
 #10. How could you take the top 3 regarding the user ratings but also the number of votes?
@@ -64,23 +72,22 @@ limit 3;
 
 #The three apps with better rating and more number of votes are: Head Soccer, Plants vs Zombies, Sniper 3D Assasain.
 
+select track_name, rating_count_tot, user_rating from data
+order by user_rating desc, rating_count_tot desc
+limit 3;
+
+
 #11. Does people care about the price? Do some queries, comment why are you doing them and the results you retrieve. What is your conclusion?
 
-select track_name, rating_count_tot, user_rating, price from data
-where user_rating = 5 and price = 9.99
-order by rating_count_tot desc
-limit 10;
+select avg(user_rating), avg(rating_count_tot) from data
+where price = 0;
 
-select track_name, rating_count_tot, user_rating, price from data
-where user_rating = 5 and price <> 0
-order by rating_count_tot desc
-limit 10;
+# 3.4 average user rating & 19800 on average of rating counts
 
-select track_name, rating_count_tot, user_rating, price from data
-where user_rating = 5 and price <> 0
-order by rating_count_tot desc
-limit 10;
+select avg(user_rating), avg(rating_count_tot)from data
+where price <> 0;
 
-# My first conclusion is that the users do care about price, as the most expensive apps are the less valued ones in average (independiently of the rating).
-# Another conclusion is that users prefer free apps but they will be fine with paying until 2 dollars/euro (the results of the 
-# most rated apps, with a valoration of 5 where the price was different to 0 reflect this)
+#3.7 average user rating & 4000 on avergare of rating counts
+
+# The conclusion is that people care about the price. Although the non free apps are better rated in average, the figures reflect that
+#users are more predisposed to use (an the rate) the apps which are free.
