@@ -4,14 +4,16 @@ SELECT distinct prime_genre FROM applestore.data;
 
 -- 2. Which is the genre with more apps rated?**
 
-SELECT prime_genre, 
-MAX(price) AS max FROM applestore.data;
+SELECT * FROM applestore.data;
+SELECT prime_genre, MAX(rating_count_tot) as count_tot
+FROM applestore.data;
 
 -- 3. Which is the genre with more apps?**
 
-SELECT prime_genre, COUNT(*)
+SELECT prime_genre, COUNT(*) as genre_count
 FROM applestore.data
 GROUP BY prime_genre
+ORDER BY genre_count DESC
 LIMIT 1;
 
 -- 4. Which is the one with less?**
@@ -26,13 +28,14 @@ Limit 1;
 
 SELECT id, track_name, rating_count_tot 
 FROM applestore.data
+ORDER BY rating_count_tot DESC
 LIMIT 10;
 
 -- 6. Take the 10 apps best rated by users.**
 
 SELECT track_name, user_rating 
 FROM applestore.data
-ORDER BY user_rating desc
+ORDER BY user_rating DESC
 LIMIT 10;
 
 
