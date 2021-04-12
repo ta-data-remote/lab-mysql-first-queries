@@ -5,8 +5,11 @@ SELECT distinct prime_genre FROM applestore.data;
 -- 2. Which is the genre with more apps rated?**
 
 SELECT * FROM applestore.data;
-SELECT prime_genre, MAX(rating_count_tot) as count_tot
-FROM applestore.data;
+SELECT prime_genre, SUM(rating_count_tot) as count_tot
+FROM applestore.data
+GROUP BY prime_genre
+ORDER BY count_tot DESC
+LIMIT 1;
 
 -- 3. Which is the genre with more apps?**
 

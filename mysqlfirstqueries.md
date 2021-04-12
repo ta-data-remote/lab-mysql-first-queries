@@ -5,8 +5,11 @@ SELECT distinct prime_genre FROM applestore.data;
 -- 2. Which is the genre with more apps rated?**
 
 SELECT * FROM applestore.data;
-SELECT prime_genre, MAX(rating_count_tot) as count_tot
-FROM applestore.data;
+SELECT prime_genre, SUM(rating_count_tot) as count_tot
+FROM applestore.data
+GROUP BY prime_genre
+ORDER BY count_tot DESC
+LIMIT 1;
 
 -- 3. Which is the genre with more apps?**
 
@@ -87,3 +90,4 @@ ORDER BY price ASC, rating_count_tot DESC;
 -- Free apps have more users and "famous" apps have above average score.
 -- Apps with a cost have less users and in the top 10 they have slightly better reviews
 -- but very close.
+
