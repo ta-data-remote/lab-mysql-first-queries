@@ -2,7 +2,7 @@
 
 # Lab | My first queries
 
-Load the *IronHackDB.sql* structure in your local MySQL Workbench database instance. Use the *applestore* (not applestore2) table to query the data about Apple Store Apps and answer the following questions: 
+Load the *IronHackDB.sql* structure in your local MySQL Workbench database instance. Use the *applestore* (not applestore2) database (or apple_store table from apps database) to query the data about Apple Store Apps and answer the following questions: 
 
 **1. Which are the different genres?**
 
