@@ -2,30 +2,18 @@
 
 # Lab | My first queries
 
-Load the *IronHackDB.sql* structure in your local MySQL Workbench database instance. Use the *applestore* (not applestore2) table to query the data about Apple Store Apps and answer the following questions: 
+Load the *IronHackDB.sql* structure in your local MySQL Workbench database instance. Use the *applestore* (not applestore2) table to query the data about Apple Store Apps and answer the following questions and extensions: 
 
-**1. Which are the different genres?**
+#7. Take a look on the data you retrieved in the question 5. Give some insights.
+# Facebook, Instagram, Clash of Clans are not surprisingly the most rated tracks. They are some kind of outliers compared to the dataset. Obviously, they are the most known and publicly used tracks. 
 
-**2. Which is the genre with more apps rated?**
+#8. Take a look on the data you retrieved in the question 6. Give some insights.
+#The user rate the tracks very differently (games king of dragon, sudoku) and learning programs are very high rated.
 
-**3. Which is the genre with more apps?**
+#9. Now compare the data from questions 5 and 6. What do you see?
+#It seems that the user ratings and number of votes do not match. Facebook and Co do not have the highest user_rating mark.
 
-**4. Which is the one with less?**
-
-**5. Take the 10 apps most rated.**
-
-**6. Take the 10 apps best rated by users.**
-
-**7. Take a look on the data you retrieved in the question 5. Give some insights.**
-
-**8. Take a look on the data you retrieved in the question 6. Give some insights.**
-
-**9. Now compare the data from questions 5 and 6. What do you see?**
-
-**10. How could you take the top 3 regarding the user ratings but also the number of votes?**
-
-**11. Does people care about the price?** Do some queries, comment why are you doing them and the results you retrieve. What is your conclusion?
-
-
+#11. Definitely the price  has an impact. The top rated counts as well as user rates are all free (facebook, instagram). The worst rated apps mostly charge some kind of fee.
+#The highest apps are either free or cost lower than than 1 Euro. For some special games minecraft, terraria (very well known) users are willing to pay a larger price
 ## Deliverables 
 You need to submit a `.sql` file that includes the queries used to answer the questions above, as well as an `.md` file including your answers. 
